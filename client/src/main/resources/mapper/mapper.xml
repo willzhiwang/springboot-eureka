@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.client.mapper.LibrarianMapper">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.example.client.entity.Librarian" id="LibrarianMap">
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+        <result column="desc" property="desc" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <select id="selectLibrarian" resultMap="LibrarianMap">
+        select *
+        from t_librarian
+    </select>
+
+    <insert id="insertLibrarian" parameterType="com.example.client.entity.Librarian">
+        insert into t_librarian (`id`,`name`,`create_date`,`desc`) values (#{xlibrarian.id},#{xlibrarian.name},#{xlibrarian.createDate},#{xlibrarian.desc})
+    </insert>
+
+    <update id="updateLibrarian" parameterType="com.example.client.entity.Librarian">
+        update t_librarian set `name`=#{xlibrarian.name},`create_date`=#{xlibrarian.createDate},`desc`=#{xlibrarian.desc}
+        where `id`=#{xlibrarian.id}
+    </update>
+
+    <delete id="deleteLibrarian" parameterType="com.example.client.entity.Librarian">
+        DELETE FROM t_librarian where `id`=#{xlibrarian.id}
+    </delete>
+
+</mapper>

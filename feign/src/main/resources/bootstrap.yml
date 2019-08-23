@@ -1,0 +1,18 @@
+#
+#spring:
+#  profiles: docker
+#  application:
+#    name: feign
+#
+#server:
+#  port: 8080
+#
+#eureka:
+#  instance:
+#    hostname: feign
+#    prefer-ip-address: true
+#  client:
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    serviceUrl:
+#      defaultZone: http://eureka-server:8761/eureka/
